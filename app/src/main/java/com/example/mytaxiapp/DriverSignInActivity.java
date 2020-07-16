@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -65,7 +66,7 @@ public class DriverSignInActivity extends AppCompatActivity {
         String confirmPasswordInput = textInputConfirmPassword.getEditText().getText().toString().trim();
 
         if (passwordInput.isEmpty()) {
-            textInputPassword.setError("Please input your name");
+            textInputPassword.setError("Please input your password");
             return false;
         }else if (passwordInput.length() < 7){
             textInputPassword.setError("Password length have to be more than 6");
@@ -80,6 +81,17 @@ public class DriverSignInActivity extends AppCompatActivity {
     }
 
     public void loginSignUpUser(View view) {
+        if (!validateEmail() | !validateName() | !validatePassword()) {
+            return;
+        }
+        String userInput = "Email: " +
+                textInputEmail.getEditText().getText().toString().trim() +
+                "\n" + "Name: " +
+                textInputName.getEditText().getText().toString().trim() +
+                "\n" + "Password: " +
+                textInputPassword.getEditText().getText().toString().trim();
+
+        Toast.makeText(this, userInput, Toast.LENGTH_LONG).show();
     }
 
     public void toggleLoginSignUp(View view) {
