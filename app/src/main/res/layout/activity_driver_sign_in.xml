@@ -77,6 +77,7 @@
     <Button
         android:id="@+id/loginSignUpButton"
         android:text="Sign up"
+        android:onClick="loginSignUpUser"
         android:background="@android:color/holo_orange_light"
         android:textColor="@color/colorAccent"
         android:textSize="25sp"
@@ -87,6 +88,7 @@
     <TextView
         android:id="@+id/toggleLoginSignUpTextView"
         android:text="Tap To Log In"
+        android:onClick="toggleLoginSignUp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"
         android:textSize="20sp"
